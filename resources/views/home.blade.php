@@ -28,28 +28,32 @@
 
     <main>
       {{------------ ヘッダー ------------}}
-      <header class="text-gray-600 body-font shadow-md fixed top-0 left-0 right-0 bg-white z-20">
+      <header id="header" class="text-gray-600 body-font shadow-md fixed top-0 left-0 right-0 bg-white z-20">
         <div class="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
           {{-- タイトル --}}
           <a class="flex items-center text-gray-900 mb-4 md:mb-0" href="#WORKS">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-yellow-400"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
-            <span class="ml-3 text-2xl font-bold tracking-widest">PORTFOLIO</span>
+            <span class="ml-3 text-2xl font-bold tracking-widest animate-spin-x">PORTFOLIO</span>
           </a>
           {{-- リンク --}}
-          <nav class="md:mr-auto md:ml-6 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-            <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300" href="#WORKS">WORKS</a>
-            <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300" href="#SKILL">SKILL</a>
-            <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300" href="#ABOUT">ABOUT</a>
+          <nav id="page-link" class="md:mr-auto md:ml-6 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+            <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 transition duration-500 transform hover:scale-110" href="#WORKS">WORKS</a>
+            <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 transition duration-500 transform hover:scale-110" href="#SKILL">SKILL</a>
+            <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 transition duration-500 transform hover:scale-110" href="#ABOUT">ABOUT</a>
           </nav>
         </div>
       </header>
 
+      <div id="particles-js"></div>
       {{------------ WORKS ------------}}
-      <section class="text-gray-600 body-font bg-yellow-50 py-24" id="WORKS">
+      <section class="text-gray-600 body-font pt-32 pb-24" id="WORKS">
         <div class="container px-10 mx-auto">
           {{-- 見出し --}}
           <div class="flex flex-col text-center w-full my-10">
             <h1 class="text-3xl font-bold title-font text-gray-900 tracking-widest">WORKS</h1>
+            <p class="mt-2 mb-1 font-bold text-gray-500">・テストアカウント(共通)・</p>
+            <p class="text-gray-600">email：test@test.com</p>
+            <p class="text-gray-600">password：password123</p>
           </div>
           {{-- コンテンツ --}}
           <p class="text-xl tracking-widest font-bold mx-4">ＯＲＩＧＩＮＡＬ</p>
@@ -58,7 +62,7 @@
             {{-- 1 --}}
             <div class="lg:w-1/3 sm:w-1/2 p-4">
               <div class="flex relative">
-                <a href="#" target="blank">
+                <a href="https://okazu-nani-6638a09d555b.herokuapp.com/" target="blank">
                   {{-- 画像 --}}
                   <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg border-4 border-gray-200" src="{{ asset('images/works1.png') }}">
                   {{-- テキスト --}}
@@ -77,7 +81,7 @@
             {{-- 2 --}}
             <div class="lg:w-1/3 sm:w-1/2 p-4">
               <div class="flex relative">
-                <a href="#" target="blank2">
+                <a href="https://seal-storage-0789dc388af7.herokuapp.com/" target="blank2">
                   {{-- 画像 --}}
                   <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg border-4 border-gray-200" src="{{ asset('images/works2.png') }}">
                   {{-- テキスト --}}
@@ -119,7 +123,7 @@
             {{-- 4 --}}
             <div class="lg:w-1/3 sm:w-1/2 p-4">
               <div class="flex relative">
-                <a href="#" target="blank4">
+                <a href="https://item-management2-517b910a641d.herokuapp.com/login" target="blank4">
                   {{-- 画像 --}}
                   <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg border-4 border-gray-200" src="{{ asset('images/works4.png') }}">
                   {{-- テキスト --}}
@@ -138,7 +142,7 @@
             {{-- 5 --}}
             <div class="lg:w-1/3 sm:w-1/2 p-4">
               <div class="flex relative">
-                <a href="#" target="blank5">
+                <a href="https://cook-laravel-36f6337c4769.herokuapp.com/" target="blank5">
                   {{-- 画像 --}}
                   <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg border-4 border-gray-200" src="{{ asset('images/works5.png') }}">
                   {{-- テキスト --}}
@@ -178,7 +182,7 @@
       </section>
 
       {{------------ SKILL ------------}}
-      <section class="text-gray-600 body-font py-24" id="SKILL">
+      <section class="text-gray-600 body-font py-24 bg-white" id="SKILL">
         <div class="container px-10 mx-auto">
           {{-- 見出し --}}
           <div class="flex flex-col text-center w-full mb-10">
@@ -278,7 +282,7 @@
       </section>
 
       {{------------ ABOUT ------------}}
-      <section class="text-gray-600 body-font bg-yellow-50 py-24" id="ABOUT">
+      <section class="text-gray-600 body-font py-24" id="ABOUT">
         {{-- 見出し --}}
         <div class="text-center mb-24">
           <h1 class="text-3xl font-bold text-gray-900 tracking-widest">ABOUT</h1>
@@ -312,6 +316,7 @@
     {{-- JavaScript、JQuery --}}
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="/js/home.js"></script>
   </body>
 </html>

@@ -140,15 +140,15 @@
     <table>
       <tr>
         <td>
-          <img class="menu" src="food1.jpg" alt="サンドイッチの画像">
-          <p>サンドイッチ</p>
+          <img class="menu" src="{{ asset('images/works3/サンドウィッチ.jpg') }}" alt="サンドウィッチの画像">
+          <p>サンドウィッチ</p>
         </td>
         <td>
-          <img class="menu" src="food2.jpg" alt="トマトパスタの画像">
+          <img class="menu" src="{{ asset('images/works3/パスタ.jpg') }}" alt="パスタの画像">
           <p>日替わりパスタ</p>
           <td>
-            <img class="menu" src="food3.jpg" alt="サラダの画像">
-            <p>サラダ</p>
+            <img class="menu" src="{{ asset('images/works3/ハンバーガー.jpg') }}" alt="ハンバーガーの画像">
+            <p>ハンバーガー</p>
           </td>
         </td>
       </tr>
@@ -159,32 +159,16 @@
     <table>
       <tr>
         <td>
-          <img class="menu" src="dessert1.jpg" alt="ガトーショコラの画像">
+          <img class="menu" src="{{ asset('images/works3/ガトーショコラ.jpg') }}" alt="ガトーショコラの画像">
           <p>ガトーショコラ</p>
         </td>
         <td>
-          <img class="menu" src="dessert2.jpg" alt="チーズケーキの画像">
+          <img class="menu" src="{{ asset('images/works3/チーズケーキ.jpg') }}" alt="チーズケーキの画像">
           <p>チーズケーキ</p>
         </td>
         <td>
-          <img class="menu" src="dessert3.jpg" alt="パンケーキの画像">
+          <img class="menu" src="{{ asset('images/works3/パンケーキ.jpg') }}" alt="パンケーキの画像">
           <p>パンケーキ</p>
-        </td>
-      </tr>
-    </table>
-    <br><br>
-
-    <h2 id="take">・Takeout menu・</h2>
-    <p>テイクアウトのご用意もございます。</p>
-    <table>
-      <tr>
-        <td>
-          <img class="menu" src="takeout.jpg" alt="テイクアウト用コーヒーの画像">
-          <p>テイクアウト用コーヒー</p>
-        </td>
-        <td>
-          <img class="menu" src="takeout2.jpg" alt="クッキーの画像">
-          <p>クッキー(プレーン/チョコ)</p>
         </td>
       </tr>
     </table>
