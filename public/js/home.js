@@ -1,6 +1,6 @@
 "use strict";
 
-// スクロール
+// トップまでスクロール
 function scrollToTop() {
     const scrollStep = -window.scrollY / (500 / 35);
     const scrollInterval = setInterval(function () {
@@ -11,26 +11,25 @@ function scrollToTop() {
         }
     }, 15);
 }
-
+// ページ内リンクまでスクロール
 $('#page-link a[href*="#"]').click(function () {
-    var elmHash = $(this).attr('href'); //ページ内リンクのHTMLタグhrefから、リンクされているエリアidの値を取得
+    var elmHash = $(this).attr('href');
     var pos = $(elmHash).offset().top-70;//idの上部の距離からHeaderの高さを引いた値を取得
     $('body,html').animate({scrollTop: pos}, 500); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール
     return false;
 });
 
 
-// //テキストのカウントアップ+バーの設定
+// カウントアップ+バーの設定
 var bar = new ProgressBar.Line(splash_text, {
     //id名を指定
-    easing: "easeInOut", //アニメーション効果linear、easeIn、easeOut、easeInOutが指定可能
+    easing: "easeInOut",
     duration: 1000, //時間指定(1000＝1秒)
-    strokeWidth: 0.2, //進捗ゲージの太さ
+    strokeWidth: 0.8, //進捗ゲージの太さ
     color: "#fff", //進捗ゲージのカラー
     trailWidth: 0.2, //ゲージベースの線の太さ
     trailColor: "#ffe45e", //ゲージベースの線のカラー
     text: {
-        //テキストの形状を直接指定
         style: {
             //天地中央に配置
             position: "absolute",
@@ -41,6 +40,7 @@ var bar = new ProgressBar.Line(splash_text, {
             transform: "translate(-50%,-50%)",
             "font-size": "1.3rem",
             color: "#fff",
+            "font-weight": "bold",
         },
         autoStyleContainer: false, //自動付与のスタイルを切る
     },
@@ -50,12 +50,11 @@ var bar = new ProgressBar.Line(splash_text, {
 });
 // //アニメーションスタート
 bar.animate(1.0, function () {
-    //バーを描画する割合を指定します 1.0 なら100%まで描画します
     $("#splash").delay(500).fadeOut(800); //アニメーションが終わったら#splashエリアをフェードアウト
 });
 
 
-// SKILLとABOUTセクションをスクロール時にフェードインさせる
+// スクロール時にセクションをフェードインさせる
 document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll("section");
 
@@ -103,7 +102,7 @@ particlesJS("particles-js",{
         }
     },
     "color":{
-        "value":"#fff700"//色
+        "value":"#fff175"
     },
     "shape":{
         "type":"polygon",//形状はpolygonを指定
@@ -111,7 +110,7 @@ particlesJS("particles-js",{
         "width":0,
         },
     "polygon":{
-    "nb_sides":3//多角形の角の数
+    "nb_sides":5//多角形の角の数
     },
     "image":{
     "width":190,
@@ -129,7 +128,7 @@ particlesJS("particles-js",{
     }
     },
     "size":{
-        "value":5,
+        "value":10,
         "random":true,
         "anim":{
         "enable":false,
@@ -141,7 +140,7 @@ particlesJS("particles-js",{
     "line_linked":{
         "enable":true,
         "distance":150,
-        "color":"#fff700",
+        "color":"#fff",
         "opacity":0.6,
         "width":3
     },
@@ -175,3 +174,77 @@ particlesJS("particles-js",{
     },
     "retina_detect":true
 });
+
+
+// 3D
+window.addEventListener("DOMContentLoaded", init);
+function init() {
+    // レンダラーを作成
+    const canvasElement = document.querySelector('#myCanvas');
+    const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        canvas: canvasElement,
+    });
+
+    // サイズ指定
+    const width = 180;
+    const height = 180;
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);
+
+    // シーンを作成
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0xA9A9A9 );//背景色
+
+    // 環境光源を作成
+    const ambientLight = new THREE.AmbientLight(0xffffff);
+    ambientLight.intensity = 2;
+    scene.add(ambientLight);
+
+    // 平行光源を作成
+    const directionalLight = new THREE.DirectionalLight(0xA9A9A9);
+    directionalLight.intensity = 2;
+    directionalLight.position.set(0, 10, 6); //x,y,zの位置を指定
+    scene.add(directionalLight);
+
+    // カメラを作成
+    const camera = new THREE.PerspectiveCamera(30, width / height, 1, 10000);
+    camera.position.set(0, 0, 700);
+
+    // カメラコントローラーを作成
+    const controls = new THREE.OrbitControls(camera, canvasElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.2;
+
+    // 3Dモデルの読み込み
+    const loader = new THREE.GLTFLoader();
+	let model = null;
+    loader.load(
+        // 3Dモデルファイルのパスを指定
+        '/images/pig.glb',
+        function (glb) {
+            model = glb.scene;
+            model.name = "model_castle";
+            model.scale.set(80.0, 80.0, 80.0);
+            model.position.set(0,0,0);
+            scene.add(model);
+        },
+        function (error) {
+            console.log(error);
+        }
+    );
+
+    // リアルタイムレンダリング
+	tick();
+	function tick() {
+		controls.update();
+		renderer.render(scene, camera);
+
+        // y軸周りに回転させる
+        if (model) {
+            model.rotation.y += 0.03;
+        }
+
+		requestAnimationFrame(tick);
+	}
+}

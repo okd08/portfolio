@@ -13,6 +13,9 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://unpkg.com/three@0.147.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/three@0.142.0/examples/js/loaders/GLTFLoader.js"></script>
     {{-- CSS --}}
     <link rel="stylesheet" href="/CSS/home.css">
 
@@ -22,6 +25,7 @@
 
   <body class="font-sans antialiased">
 
+    {{-- カウントアップバー --}}
     <div id="splash">
       <div id="splash_text"></div>
     </div>
@@ -33,7 +37,7 @@
           {{-- タイトル --}}
           <a class="flex items-center text-gray-900 mb-4 md:mb-0" href="#WORKS">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-yellow-400"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
-            <span class="ml-3 text-2xl font-bold tracking-widest animate-spin-x">PORTFOLIO</span>
+            <span class="ml-3 text-3xl font-bold tracking-widest animate-spin-x heading">PORTFOLIO</span>
           </a>
           {{-- リンク --}}
           <nav id="page-link" class="md:mr-auto md:ml-6 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
@@ -44,7 +48,9 @@
         </div>
       </header>
 
+      {{-- 背景パーティクル --}}
       <div id="particles-js"></div>
+
       {{------------ WORKS ------------}}
       <section class="text-gray-600 body-font pt-32 pb-24" id="WORKS">
         <div class="container px-10 mx-auto">
@@ -57,7 +63,7 @@
           </div>
           {{-- コンテンツ --}}
           <p class="text-xl tracking-widest font-bold mx-4">ＯＲＩＧＩＮＡＬ</p>
-          <div class="h-1 bg-yellow-200 mb-4 mx-2 rounded-md"></div>
+          <div class="h-1 bg-yellow-300 mb-4 mx-2 rounded-md"></div>
           <div class="flex flex-wrap -m-4 px-5">
             {{-- 1 --}}
             <div class="lg:w-1/3 sm:w-1/2 p-4">
@@ -118,7 +124,7 @@
             </div>
           </div>
           <p class="text-xl tracking-widest font-bold mx-4 mt-8">ＰＲＡＣＴＩＣＥ</p>
-          <div class="h-1 bg-yellow-200 mb-4 mx-2 rounded-md"></div>
+          <div class="h-1 bg-yellow-300 mb-4 mx-2 rounded-md"></div>
           <div class="flex flex-wrap -m-4 px-5">
             {{-- 4 --}}
             <div class="lg:w-1/3 sm:w-1/2 p-4">
@@ -182,7 +188,7 @@
       </section>
 
       {{------------ SKILL ------------}}
-      <section class="text-gray-600 body-font py-24 bg-white" id="SKILL">
+      <section class="text-gray-600 body-font py-24 bg-white bg-opacity-70" id="SKILL">
         <div class="container px-10 mx-auto">
           {{-- 見出し --}}
           <div class="flex flex-col text-center w-full mb-10">
@@ -193,7 +199,7 @@
             <div class="container px-5 mx-auto flex flex-wrap">
               <div class="flex flex-wrap -m-4">
                 {{-- 1 --}}
-                <div class="p-4 lg:w-1/2 md:w-full">
+                <div class="p-4 lg:w-1/2 md:w-full bg-white">
                   <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-4">
                     {{-- アイコン --}}
                     <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 mr-4 inline-flex items-center justify-center rounded-full bg-yellow-100 flex-shrink-0">
@@ -212,7 +218,7 @@
                   </div>
                 </div>
                 {{-- 2 --}}
-                <div class="p-4 lg:w-1/2 md:w-full">
+                <div class="p-4 lg:w-1/2 md:w-full bg-white">
                   <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-4">
                     {{-- テキスト --}}
                     <div class="flex-grow">
@@ -228,7 +234,7 @@
                   </div>
                 </div>
                 {{-- 3 --}}
-                <div class="p-4 lg:w-1/2 md:w-full">
+                <div class="p-4 lg:w-1/2 md:w-full bg-white">
                   <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-4">
                     {{-- アイコン --}}
                     <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 mr-4 inline-flex items-center justify-center rounded-full bg-yellow-100 flex-shrink-0">
@@ -244,7 +250,7 @@
                   </div>
                 </div>
                 {{-- 4 --}}
-                <div class="p-4 lg:w-1/2 md:w-full">
+                <div class="p-4 lg:w-1/2 md:w-full bg-white">
                   <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-4">
                     {{-- テキスト --}}
                     <div class="flex-grow">
@@ -260,7 +266,7 @@
                   </div>
                 </div>
                 {{-- 5 --}}
-                <div class="p-4 lg:w-1/2 md:w-full">
+                <div class="p-4 lg:w-1/2 md:w-full bg-white">
                   <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-4">
                     {{-- アイコン --}}
                     <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 mr-4 inline-flex items-center justify-center rounded-full bg-yellow-100 flex-shrink-0">
@@ -290,14 +296,14 @@
         <div class="relative p-4 w-2/3 lg:w-1/3 mx-auto">
           {{-- アイコン --}}
           <div class="absolute mb-4 text-center transform translate-x-1/2 -top-16 right-1/2">
-            <img alt="プロフィール画像" src="{{ asset('images/person.jpeg') }}" class="mx-auto object-cover rounded-lg h-40 w-40  border-4 border-gray-300"/>
+            <canvas id="myCanvas" class="mx-auto object-cover rounded-lg border-4 border-gray-200 bg-white"></canvas>
           </div>
-          <div class="w-400 py-4 pt-24 bg-white rounded-lg shadow">
+          <div class="w-400 py-4 pt-24 bg-white bg-opacity-70 rounded-lg shadow pic">
             {{-- 名前 --}}
             <div class="text-center">
-                <p class="text-xl text-gray-800">SUZUKA OKADA</p>
+                <p class="text-xl text-gray-800 mt-2">SUZUKA OKADA</p>
             </div>
-            <div class="flex items-center justify-center w-40 pt-8 mx-auto text-gray-500 border-t-4 border-yellow-200">
+            <div class="flex items-center justify-center w-40 pt-8 mx-auto text-gray-300 border-t-4 border-yellow-200">
             </div>
             {{-- テキスト --}}
             <p class="mx-5">IT業界への転職を目指して、スクール+独学でプログラミングを学習中です。もともと絵や3Dなど、PCでのものづくりが好きなため、難しいながらも楽しんで制作することができています。<br>未経験ではありますが、 努力を惜しまず学習を続け、熱意を持って業務に取り組んでまいります。よろしくお願いいたします。</p>
@@ -310,7 +316,7 @@
       </section>
 
       {{-- 上に戻るボタン --}}
-      <button onclick="scrollToTop()"  class="fixed bottom-8 right-8 bg-yellow-300 hover:bg-yellow-400 text-white text-xl font-bold py-1 px-3 rounded-full z-20">↑</button>
+      <button onclick="scrollToTop()"  class="fixed bottom-8 right-8 bg-yellow-300 hover:bg-yellow-400 text-white text-xl font-bold py-1 px-3 rounded-full z-20 transition duration-500 transform hover:scale-110">↑</button>
     </main>
     
     {{-- JavaScript、JQuery --}}
