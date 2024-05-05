@@ -77,8 +77,8 @@
                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">今日のおかずは？</h1>
                     <p class="leading-relaxed">冷蔵庫を管理するアプリです。食材を登録して在庫や賞味期限の確認ができます。</p>
                     <div class="bg-yellow-100 mt-4 p-2 border">
-                      <p class="leading-relaxed">製作期間：1週間程度</p>
-                      <p class="leading-relaxed">使用言語：HTML/CSS/PHP/JS</p>
+                      <p class="leading-relaxed text-sm">製作期間：1週間(学習開始から7ヶ月目に制作)</p>
+                      <p class="leading-relaxed text-sm">使用言語：HTML/CSS/PHP/JavaScript</p>
                     </div>
                   </div>
                 </a>
@@ -96,8 +96,8 @@
                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Seal Strage</h1>
                     <p class="leading-relaxed">フレークシールを管理するアプリです。パッケージやタグの登録、検索ができます。</p>
                     <div class="bg-yellow-100 mt-4 p-2 border">
-                      <p class="leading-relaxed">製作期間：2週間程度</p>
-                      <p class="leading-relaxed">使用言語：HTML/CSS/PHP/JS</p>
+                      <p class="leading-relaxed text-sm">製作期間：2週間(学習開始から5ヶ月目に制作)</p>
+                      <p class="leading-relaxed text-sm">使用言語：HTML/CSS/PHP/JavaScript</p>
                     </div>
                   </div>
                 </a>
@@ -115,8 +115,8 @@
                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">renshu-cafeホームページ</h1>
                     <p class="leading-relaxed">架空のカフェのホームページです。メニュー画像は3Dモデリングアプリで制作しました。</p>
                     <div class="bg-yellow-100 mt-4 p-2 border">
-                      <p class="leading-relaxed">製作期間：1週間程度</p>
-                      <p class="leading-relaxed">使用言語：HTML/CSS</p>
+                      <p class="leading-relaxed text-sm">製作期間：1週間(学習開始から2ヶ月目に制作)</p>
+                      <p class="leading-relaxed text-sm">使用言語：HTML/CSS</p>
                     </div>
                   </div>
                 </a>
@@ -138,8 +138,8 @@
                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">商品管理システム</h1>
                     <p class="leading-relaxed">既存のシステムにオリジナルの機能を追加する、というスクールの課題で制作しました。</p>
                     <div class="bg-yellow-100 mt-4 p-2 border">
-                      <p class="leading-relaxed">製作期間：2週間程度</p>
-                      <p class="leading-relaxed">使用言語：HTML/CSS/PHP/JS</p>
+                      <p class="leading-relaxed text-sm">製作期間：2週間(学習開始から6ヶ月目に制作)</p>
+                      <p class="leading-relaxed text-sm">使用言語：HTML/CSS/PHP/JavaScript</p>
                     </div>
                   </div>
                 </a>
@@ -157,8 +157,8 @@
                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Cook Laravel</h1>
                     <p class="leading-relaxed"><a href="https://www.udemy.com/course/laravel10/?couponCode=JPLETSLEARNNOW" target="blank" class="text-blue-500 hover:border-b hover:border-blue-300">Udemyの講座</a>を受講しながら制作したレシピ投稿サイトです。</p>
                     <div class="bg-yellow-100 mt-4 p-2 border">
-                      <p class="leading-relaxed">製作期間：3週間程度</p>
-                      <p class="leading-relaxed">使用言語：HTML/CSS/PHP/JS</p>
+                      <p class="leading-relaxed text-sm">製作期間：3週間(学習開始から4ヶ月目に制作)</p>
+                      <p class="leading-relaxed text-sm">使用言語：HTML/CSS/PHP/JavaScript</p>
                     </div>
                   </div>
                 </a>
@@ -176,8 +176,8 @@
                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">模写コーディング・練習アプリ集</h1>
                     <p class="leading-relaxed">プログラミングを学習していく中で、教材を参考にコーディングしたもののまとめです。</p>
                     <div class="bg-yellow-100 mt-4 p-2 border">
-                      <p class="leading-relaxed">製作期間：平均1～2日程度</p>
-                      <p class="leading-relaxed">使用言語：HTML/CSS/PHP/JS</p>
+                      <p class="leading-relaxed texy-sm">製作期間：平均1～2日程度</p>
+                      <p class="leading-relaxed text-sm">使用言語：HTML/CSS/PHP/JavaScript</p>
                     </div>
                   </div>
                 </a>
@@ -294,9 +294,9 @@
           <h1 class="text-3xl font-bold text-gray-900 tracking-widest">ABOUT</h1>
         </div>
         <div class="relative p-4 w-2/3 lg:w-1/3 mx-auto">
-          {{-- アイコン --}}
+          {{-- 3D --}}
           <div class="absolute mb-4 text-center transform translate-x-1/2 -top-16 right-1/2">
-            <canvas id="myCanvas" class="mx-auto object-cover rounded-lg border-4 border-gray-200 bg-white"></canvas>
+            <canvas id="myCanvas" class="mx-auto object-cover rounded-lg border-4 border-gray-200 bg-white" title="ドラッグ：回転 スクロール：拡大/縮小"></canvas>
           </div>
           <div class="w-400 py-4 pt-24 bg-white bg-opacity-70 rounded-lg shadow pic">
             {{-- 名前 --}}
@@ -306,7 +306,7 @@
             <div class="flex items-center justify-center w-40 pt-8 mx-auto text-gray-300 border-t-4 border-yellow-200">
             </div>
             {{-- テキスト --}}
-            <p class="mx-5">IT業界への転職を目指して、スクール+独学でプログラミングを学習中です。もともと絵や3Dなど、PCでのものづくりが好きなため、難しいながらも楽しんで制作することができています。<br>未経験ではありますが、 努力を惜しまず学習を続け、熱意を持って業務に取り組んでまいります。よろしくお願いいたします。</p>
+            <p class="mx-5">IT業界への転職を目指して、スクール+独学でプログラミングを学習中です。<br>未経験ではありますが、 努力を惜しまず学習を続け、熱意を持って業務に取り組んでまいります。よろしくお願いいたします。</p>
             {{-- リンク --}}
             <a href="https://github.com/okd08" target="_blank" title="GitHubリンク" class="flex items-center justify-center mt-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-yellow-400 dark:hover:text-white" viewBox="0 0 1792 1792"><path d="M896 128q209 0 385.5 103t279.5 279.5 103 385.5q0 251-146.5 451.5t-378.5 277.5q-27 5-40-7t-13-30q0-3 .5-76.5t.5-134.5q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-119-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-85-13.5q-45 113-8 204-79 87-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-39 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 88.5t.5 54.5q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103zm-477 1103q3-7-7-12-10-3-13 2-3 7 7 12 9 6 13-2zm31 34q7-5-2-16-10-9-16-3-7 5 2 16 10 10 16 3zm30 45q9-7 0-19-8-13-17-6-9 5 0 18t17 7zm42 42q8-8-4-19-12-12-20-3-9 8 4 19 12 12 20 3zm57 25q3-11-13-16-15-4-19 7t13 15q15 6 19-6zm63 5q0-13-17-11-16 0-16 11 0 13 17 11 16 0 16-11zm58-10q-2-11-18-9-16 3-14 15t18 8 14-14z"></path></svg>

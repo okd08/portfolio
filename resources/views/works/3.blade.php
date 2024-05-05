@@ -59,13 +59,14 @@
         margin-bottom: 10px;
       }
       .menu {
-        height: 200px;
-        margin-left: 5px;
-        margin-right: 5px;
+        width: 80%;
+        display: block;
+        margin: 0 auto;
       }
       table {
         margin-left: auto;
         margin-right: auto;
+        table-layout: fixed;
       }
       .footer {
         height: 40px;
@@ -107,8 +108,8 @@
     <table>
       <tr>
         <td>
-          <img class="menu" src="{{ asset('images/works3/コーヒー.jpg') }}" alt="オリジナルブレンドの画像">
-          <p>オリジナルブレンド(hot/ice)</p>
+          <img class="menu" src="{{ asset('images/works3/コーヒー.jpg') }}" alt="コーヒーの画像">
+          <p>コーヒー</p>
         </td>
         <td>
           <img class="menu" src="{{ asset('images/works3/ラテ.jpg') }}" alt="カフェラテの画像">
@@ -116,13 +117,13 @@
         </td>
         <td>
           <img class="menu" src="{{ asset('images/works3/紅茶.jpg') }}" alt="紅茶の画像">
-          <p>紅茶(hot/ice)</p>
+          <p>紅茶</p>
         </td>
       </tr>
       <tr>
         <td>
           <img class="menu" src="{{ asset('images/works3/ココア.jpg') }}" alt="ココアの画像">
-          <p>ココア(hot/ice)</p>
+          <p>ココア</p>
         </td>
         <td>
           <img class="menu" src="{{ asset('images/works3/レモネード.jpg') }}" alt="レモネードの画像">
