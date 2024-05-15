@@ -1,28 +1,6 @@
 "use strict";
-
-// トップまでスクロール
-function scrollToTop() {
-    const scrollStep = -window.scrollY / (500 / 35);
-    const scrollInterval = setInterval(function () {
-        if (window.scrollY !== 0) {
-            window.scrollBy(0, scrollStep);
-        } else {
-            clearInterval(scrollInterval);
-        }
-    }, 15);
-}
-// ページ内リンクまでスクロール
-$('#page-link a[href*="#"]').click(function () {
-    var elmHash = $(this).attr('href');
-    var pos = $(elmHash).offset().top-70;//idの上部の距離からHeaderの高さを引いた値を取得
-    $('body,html').animate({scrollTop: pos}, 500); //取得した位置にスクロール。500の数値が大きくなるほどゆっくりスクロール
-    return false;
-});
-
-
-// カウントアップ+バーの設定
+/////// カウントアップ+バー ///////
 var bar = new ProgressBar.Line(splash_text, {
-    //id名を指定
     easing: "easeInOut",
     duration: 1000, //時間指定(1000＝1秒)
     strokeWidth: 0.8, //進捗ゲージの太さ
@@ -31,7 +9,6 @@ var bar = new ProgressBar.Line(splash_text, {
     trailColor: "#ffe45e", //ゲージベースの線のカラー
     text: {
         style: {
-            //天地中央に配置
             position: "absolute",
             left: "50%",
             top: "50%",
@@ -48,50 +25,12 @@ var bar = new ProgressBar.Line(splash_text, {
         bar.setText(Math.round(bar.value() * 100) + " %"); //テキストの数値
     },
 });
-// //アニメーションスタート
+//アニメーションスタート
 bar.animate(1.0, function () {
     $("#splash").delay(500).fadeOut(800); //アニメーションが終わったら#splashエリアをフェードアウト
 });
 
-
-// スクロール時にセクションをフェードインさせる
-document.addEventListener("DOMContentLoaded", function() {
-    const sections = document.querySelectorAll("section");
-
-    const fadeInSections = () => {
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-
-            if (sectionTop < windowHeight) {
-                section.classList.add("fade-in");
-            }
-        });
-    };
-
-    fadeInSections();
-
-    window.addEventListener("scroll", fadeInSections);
-});
-document.addEventListener("DOMContentLoaded", function() {
-    const aboutSection = document.getElementById("ABOUT");
-
-    const fadeInAboutSection = () => {
-        const sectionTop = aboutSection.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-
-        if (sectionTop < windowHeight) {
-            aboutSection.classList.add("fade-in");
-        }
-    };
-
-    fadeInAboutSection();
-
-    window.addEventListener("scroll", fadeInAboutSection);
-});
-
-
-// 背景パーティクル
+/////// 背景パーティクル ///////
 particlesJS("particles-js",{
     "particles":{
     "number":{
@@ -175,8 +114,24 @@ particlesJS("particles-js",{
     "retina_detect":true
 });
 
+/////// スクロール時に各セクションをフェードイン ///////
+document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll("section");
+    const fadeInSections = () => {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
 
-// 3D
+            if (sectionTop < windowHeight) {
+                section.classList.add("fade-in");
+            }
+        });
+    };
+    fadeInSections();
+    window.addEventListener("scroll", fadeInSections);
+});
+
+/////// 3Dモデル表示 ///////
 window.addEventListener("DOMContentLoaded", init);
 function init() {
     // レンダラーを作成
@@ -185,37 +140,30 @@ function init() {
         antialias: true,
         canvas: canvasElement,
     });
-
     // サイズ指定
     const width = 180;
     const height = 180;
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(width, height);
-
     // シーンを作成
     const scene = new THREE.Scene();
     scene.background = new THREE.Color( 0xA9A9A9 );//背景色
-
     // 環境光源を作成
     const ambientLight = new THREE.AmbientLight(0xffffff);
     ambientLight.intensity = 2;
     scene.add(ambientLight);
-
     // 平行光源を作成
     const directionalLight = new THREE.DirectionalLight(0xA9A9A9);
     directionalLight.intensity = 2;
     directionalLight.position.set(0, 10, 6); //x,y,zの位置を指定
     scene.add(directionalLight);
-
     // カメラを作成
     const camera = new THREE.PerspectiveCamera(30, width / height, 1, 10000);
     camera.position.set(0, 0, 700);
-
     // カメラコントローラーを作成
     const controls = new THREE.OrbitControls(camera, canvasElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.2;
-
     // 3Dモデルの読み込み
     const loader = new THREE.GLTFLoader();
 	let model = null;
@@ -233,18 +181,34 @@ function init() {
             console.log(error);
         }
     );
-
     // リアルタイムレンダリング
 	tick();
 	function tick() {
 		controls.update();
 		renderer.render(scene, camera);
-
         // y軸周りに回転させる
         if (model) {
             model.rotation.y += 0.03;
         }
-
 		requestAnimationFrame(tick);
 	}
 }
+
+/////// トップまでスクロール ///////
+function scrollToTop() {
+    const scrollStep = -window.scrollY / (500 / 35);
+    const scrollInterval = setInterval(function () {
+        if (window.scrollY !== 0) {
+            window.scrollBy(0, scrollStep);
+        } else {
+            clearInterval(scrollInterval);
+        }
+    }, 15);
+}
+/////// ページ内リンクまでスクロール ///////
+$('#page-link a[href*="#"]').click(function () {
+    var elmHash = $(this).attr('href');
+    var pos = $(elmHash).offset().top-70;//idの上部の距離からHeaderの高さを引いた値を取得
+    $('body,html').animate({scrollTop: pos}, 500); //取得した位置にスクロール。数値が大きくなるほどゆっくりスクロール
+    return false;
+});

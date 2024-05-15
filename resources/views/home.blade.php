@@ -13,14 +13,12 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://unpkg.com/three@0.147.0/build/three.min.js"></script>
-    <script src="https://unpkg.com/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
-    <script src="https://unpkg.com/three@0.142.0/examples/js/loaders/GLTFLoader.js"></script>
+
     {{-- CSS --}}
     <link rel="stylesheet" href="/CSS/home.css">
 
     <!-- ファビコン -->
-        <link rel="shortcut icon" href="{{ asset('/logo.png') }}">
+    <link rel="shortcut icon" href="{{ asset('/logo.png') }}">
   </head>
 
   <body class="font-sans antialiased">
@@ -30,33 +28,34 @@
       <div id="splash_text"></div>
     </div>
 
+    {{-- 背景パーティクル --}}
+    <div id="particles-js"></div>
+
+    {{------------ ヘッダー ------------}}
+    <header id="header" class="text-gray-600 body-font shadow-md fixed top-0 left-0 right-0 bg-white z-20">
+      <div class="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
+        {{-- タイトル --}}
+        <a class="flex items-center text-gray-900 mb-4 md:mb-0" href="#WORKS">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-yellow-400"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
+          <h1 class="ml-3 text-3xl font-bold tracking-widest animate-spin-x heading">PORTFOLIO</h1>
+        </a>
+        {{-- ページ内リンク --}}
+        <nav id="page-link" class="md:mr-auto md:ml-6 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+          <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 transition duration-500 transform hover:scale-110" href="#WORKS">WORKS</a>
+          <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 transition duration-500 transform hover:scale-110" href="#SKILL">SKILL</a>
+          <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 transition duration-500 transform hover:scale-110" href="#ABOUT">ABOUT</a>
+        </nav>
+      </div>
+    </header>
+
+    {{------------ メイン ------------}}
     <main>
-      {{------------ ヘッダー ------------}}
-      <header id="header" class="text-gray-600 body-font shadow-md fixed top-0 left-0 right-0 bg-white z-20">
-        <div class="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
-          {{-- タイトル --}}
-          <a class="flex items-center text-gray-900 mb-4 md:mb-0" href="#WORKS">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-yellow-400"><path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
-            <span class="ml-3 text-3xl font-bold tracking-widest animate-spin-x heading">PORTFOLIO</span>
-          </a>
-          {{-- リンク --}}
-          <nav id="page-link" class="md:mr-auto md:ml-6 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-            <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 transition duration-500 transform hover:scale-110" href="#WORKS">WORKS</a>
-            <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 transition duration-500 transform hover:scale-110" href="#SKILL">SKILL</a>
-            <a class="mr-5 hover:text-yellow-400 border-b-2 border-transparent rounded-t-lg hover:border-gray-300 transition duration-500 transform hover:scale-110" href="#ABOUT">ABOUT</a>
-          </nav>
-        </div>
-      </header>
-
-      {{-- 背景パーティクル --}}
-      <div id="particles-js"></div>
-
       {{------------ WORKS ------------}}
       <section class="text-gray-600 body-font pt-32 pb-24" id="WORKS">
         <div class="container px-10 mx-auto">
           {{-- 見出し --}}
           <div class="flex flex-col text-center w-full my-10">
-            <h1 class="text-3xl font-bold title-font text-gray-900 tracking-widest">WORKS</h1>
+            <h2 class="text-3xl font-bold title-font text-gray-900 tracking-widest">WORKS</h2>
             <p class="mt-2 mb-1 font-bold text-gray-500">・テストアカウント(共通)・</p>
             <p class="text-gray-600">email：test@test.com</p>
             <p class="text-gray-600">password：password123</p>
@@ -73,11 +72,11 @@
                   <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg border-4 border-gray-200" src="{{ asset('images/works1.png') }}">
                   {{-- テキスト --}}
                   <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white bg-opacity-90 rounded-lg opacity-0 transition-opacity duration-300 hover:opacity-100">
-                    <h2 class="tracking-widest text-sm title-font font-medium text-yellow-400 mb-1">2024/04</h2>
+                    <h2 class="tracking-widest text-sm title-font font-medium text-yellow-400 mb-1">2024/04(学習開始から7ヶ月目)</h2>
                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">今日のおかずは？</h1>
                     <p class="leading-relaxed">冷蔵庫を管理するアプリです。食材を登録して在庫や賞味期限の確認ができます。</p>
                     <div class="bg-yellow-100 mt-4 p-2 border">
-                      <p class="leading-relaxed text-sm">製作期間：1週間(学習開始から7ヶ月目に制作)</p>
+                      <p class="leading-relaxed text-sm">製作期間：1週間</p>
                       <p class="leading-relaxed text-sm">使用言語：HTML/CSS/PHP/JavaScript</p>
                     </div>
                   </div>
@@ -92,11 +91,11 @@
                   <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg border-4 border-gray-200" src="{{ asset('images/works2.png') }}">
                   {{-- テキスト --}}
                   <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white bg-opacity-90 rounded-lg opacity-0 transition-opacity duration-300 hover:opacity-100">
-                    <h2 class="tracking-widest text-sm title-font font-medium text-yellow-400 mb-1">2024/02</h2>
+                    <h2 class="tracking-widest text-sm title-font font-medium text-yellow-400 mb-1">2024/02(学習開始から5ヶ月目)</h2>
                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Seal Strage</h1>
                     <p class="leading-relaxed">フレークシールを管理するアプリです。パッケージやタグの登録、検索ができます。</p>
                     <div class="bg-yellow-100 mt-4 p-2 border">
-                      <p class="leading-relaxed text-sm">製作期間：2週間(学習開始から5ヶ月目に制作)</p>
+                      <p class="leading-relaxed text-sm">製作期間：2週間</p>
                       <p class="leading-relaxed text-sm">使用言語：HTML/CSS/PHP/JavaScript</p>
                     </div>
                   </div>
@@ -111,11 +110,11 @@
                   <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg border-4 border-gray-200" src="{{ asset('images/works3.png') }}">
                   {{-- テキスト --}}
                   <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white bg-opacity-90 rounded-lg opacity-0 transition-opacity duration-300 hover:opacity-100">
-                    <h2 class="tracking-widest text-sm title-font font-medium text-yellow-400 mb-1">2023/11</h2>
+                    <h2 class="tracking-widest text-sm title-font font-medium text-yellow-400 mb-1">2023/11(学習開始から2ヶ月目)</h2>
                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">renshu-cafeホームページ</h1>
                     <p class="leading-relaxed">架空のカフェのホームページです。メニュー画像は3Dモデリングアプリで制作しました。</p>
                     <div class="bg-yellow-100 mt-4 p-2 border">
-                      <p class="leading-relaxed text-sm">製作期間：1週間(学習開始から2ヶ月目に制作)</p>
+                      <p class="leading-relaxed text-sm">製作期間：1週間</p>
                       <p class="leading-relaxed text-sm">使用言語：HTML/CSS</p>
                     </div>
                   </div>
@@ -134,11 +133,11 @@
                   <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg border-4 border-gray-200" src="{{ asset('images/works4.png') }}">
                   {{-- テキスト --}}
                   <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white bg-opacity-90 rounded-lg opacity-0 transition-opacity duration-300 hover:opacity-100">
-                    <h2 class="tracking-widest text-sm title-font font-medium text-yellow-400 mb-1">2024/03</h2>
+                    <h2 class="tracking-widest text-sm title-font font-medium text-yellow-400 mb-1">2024/03(学習開始から6ヶ月目)</h2>
                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">商品管理システム</h1>
                     <p class="leading-relaxed">既存のシステムにオリジナルの機能を追加する、というスクールの課題で制作しました。</p>
                     <div class="bg-yellow-100 mt-4 p-2 border">
-                      <p class="leading-relaxed text-sm">製作期間：2週間(学習開始から6ヶ月目に制作)</p>
+                      <p class="leading-relaxed text-sm">製作期間：2週間</p>
                       <p class="leading-relaxed text-sm">使用言語：HTML/CSS/PHP/JavaScript</p>
                     </div>
                   </div>
@@ -153,11 +152,11 @@
                   <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center rounded-lg border-4 border-gray-200" src="{{ asset('images/works5.png') }}">
                   {{-- テキスト --}}
                   <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white bg-opacity-90 rounded-lg opacity-0 transition-opacity duration-300 hover:opacity-100">
-                    <h2 class="tracking-widest text-sm title-font font-medium text-yellow-400 mb-1">2024/01</h2>
+                    <h2 class="tracking-widest text-sm title-font font-medium text-yellow-400 mb-1">2024/01(学習開始から4ヶ月目)</h2>
                     <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Cook Laravel</h1>
                     <p class="leading-relaxed"><a href="https://www.udemy.com/course/laravel10/?couponCode=JPLETSLEARNNOW" target="blank" class="text-blue-500 hover:border-b hover:border-blue-300">Udemyの講座</a>を受講しながら制作したレシピ投稿サイトです。</p>
                     <div class="bg-yellow-100 mt-4 p-2 border">
-                      <p class="leading-relaxed text-sm">製作期間：3週間(学習開始から4ヶ月目に制作)</p>
+                      <p class="leading-relaxed text-sm">製作期間：3週間</p>
                       <p class="leading-relaxed text-sm">使用言語：HTML/CSS/PHP/JavaScript</p>
                     </div>
                   </div>
@@ -192,7 +191,7 @@
         <div class="container px-10 mx-auto">
           {{-- 見出し --}}
           <div class="flex flex-col text-center w-full mb-10">
-            <h1 class="text-3xl font-bold title-font text-gray-900 tracking-widest">SKILL</h1>
+            <h2 class="text-3xl font-bold title-font text-gray-900 tracking-widest">SKILL</h2>
           </div>
           {{-- コンテンツ --}}
           <section class="text-gray-600 body-font">
@@ -213,7 +212,7 @@
                     {{-- テキスト --}}
                     <div class="flex-grow">
                       <h2 class="text-gray-900 text-lg title-font font-bold mb-3">HTML/CSS</h2>
-                      <p class="leading-relaxed text-base">★★★★☆ フレームワークはBootstrapとTailwindCSSが使えます。</p>
+                      <p class="leading-relaxed text-base">★★★★☆ 基本的なコーディングができます。フレームワークはBootstrapとTailwindCSSが使えます。</p>
                     </div>
                   </div>
                 </div>
@@ -223,7 +222,7 @@
                     {{-- テキスト --}}
                     <div class="flex-grow">
                       <h2 class="text-gray-900 text-lg title-font font-bold mb-3">PHP</h2>
-                      <p class="leading-relaxed text-base">★★★☆☆ 基本的なWebアプリケーションが作れます。フレームワークはLaravelが使えます。</p>
+                      <p class="leading-relaxed text-base">★★★☆☆ 簡単なWebアプリケーションが作れます。フレームワークはLaravelが使えます。</p>
                     </div>
                     {{-- アイコン --}}
                     <div class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 ml-4 inline-flex items-center justify-center rounded-full bg-yellow-100 flex-shrink-0">
@@ -277,7 +276,7 @@
                     {{-- テキスト --}}
                     <div class="flex-grow">
                       <h2 class="text-gray-900 text-lg title-font font-bold mb-3">GitHub</h2>
-                      <p class="leading-relaxed text-base">基本的なGit管理ができます。スクールのグループワークで、複数人での使い方も学びました。</p>
+                      <p class="leading-relaxed text-base">基本的なGit管理ができます。スクールのグループワークで、複数人での使い方も学んでいます。</p>
                     </div>
                   </div>
                 </div>
@@ -291,7 +290,7 @@
       <section class="text-gray-600 body-font py-24" id="ABOUT">
         {{-- 見出し --}}
         <div class="text-center mb-24">
-          <h1 class="text-3xl font-bold text-gray-900 tracking-widest">ABOUT</h1>
+          <h2 class="text-3xl font-bold text-gray-900 tracking-widest">ABOUT</h2>
         </div>
         <div class="relative p-4 w-2/3 lg:w-1/3 mx-auto">
           {{-- 3D --}}
@@ -301,13 +300,13 @@
           <div class="w-400 py-4 pt-24 bg-white bg-opacity-70 rounded-lg shadow pic">
             {{-- 名前 --}}
             <div class="text-center">
-                <p class="text-xl text-gray-800 mt-2">SUZUKA OKADA</p>
+              <p class="text-xl text-gray-800 mt-2">SUZUKA OKADA</p>
             </div>
-            <div class="flex items-center justify-center w-40 pt-8 mx-auto text-gray-300 border-t-4 border-yellow-200">
+            <div class="flex items-center justify-center w-40 pt-8 mx-auto border-t-4 border-yellow-200">
             </div>
             {{-- テキスト --}}
             <p class="mx-5">IT業界への転職を目指して、スクール+独学でプログラミングを学習中です。<br>未経験ではありますが、 努力を惜しまず学習を続け、熱意を持って業務に取り組んでまいります。よろしくお願いいたします。</p>
-            {{-- リンク --}}
+            {{-- GitHubリンク --}}
             <a href="https://github.com/okd08" target="_blank" title="GitHubリンク" class="flex items-center justify-center mt-4">
               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="text-xl transition-colors duration-200 hover:text-yellow-400 dark:hover:text-white" viewBox="0 0 1792 1792"><path d="M896 128q209 0 385.5 103t279.5 279.5 103 385.5q0 251-146.5 451.5t-378.5 277.5q-27 5-40-7t-13-30q0-3 .5-76.5t.5-134.5q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-119-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-85-13.5q-45 113-8 204-79 87-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-39 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 88.5t.5 54.5q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103zm-477 1103q3-7-7-12-10-3-13 2-3 7 7 12 9 6 13-2zm31 34q7-5-2-16-10-9-16-3-7 5 2 16 10 10 16 3zm30 45q9-7 0-19-8-13-17-6-9 5 0 18t17 7zm42 42q8-8-4-19-12-12-20-3-9 8 4 19 12 12 20 3zm57 25q3-11-13-16-15-4-19 7t13 15q15 6 19-6zm63 5q0-13-17-11-16 0-16 11 0 13 17 11 16 0 16-11zm58-10q-2-11-18-9-16 3-14 15t18 8 14-14z"></path></svg>
             </a>
@@ -323,6 +322,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/master/dist/progressbar.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/three@0.147.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/three@0.142.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="/js/home.js"></script>
   </body>
 </html>
